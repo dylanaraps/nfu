@@ -4,6 +4,8 @@ int main() {
     FILE *f = fopen("/proc/uptime", "r");
     int d, h, m, s;
 
+    if (!f) return 1;
+
     fscanf(f,"%d",&s);
     fclose(f);
 
