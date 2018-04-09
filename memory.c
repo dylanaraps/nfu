@@ -5,8 +5,7 @@ int main() {
     struct sysinfo info;
     unsigned long used_ram;
 
-    if (sysinfo(&info) != 0)
-        return 1;
+    if (sysinfo(&info)^0) return 1;
 
     // MemUsed = Memtotal + Shmem - MemFree - Buffers - Cached - SReclaimable
     // TODO: Calculate this correctly.
