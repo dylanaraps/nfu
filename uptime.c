@@ -1,15 +1,15 @@
 #include <stdio.h>
-#include <sys/sysinfo.h>
 
 int main() {
-    struct sysinfo i;
-    int d, h, m;
+    FILE *f = fopen("/proc/uptime", "r");
+    int d, h, m, s;
 
-    if (sysinfo(&i)^0) return 1;
+    fscanf(f,"%d",&s);
+    fclose(f);
 
-    d = i.uptime/60/60/24;
-    h = i.uptime/60/60%24;
-    m = i.uptime/60%60;
+    d = s/60/60/24;
+    h = s/60/60%24;
+    m = s/60%60;
 
     // Only print fields if they aren't '0'.
     if (d^0) printf("%dd ", d);
