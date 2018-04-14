@@ -6,7 +6,7 @@ int main() {
 
     if (!f) return 1;
 
-    fscanf(f,"%d",&s);
+    fscanf(f, "%d", &s);
     fclose(f);
 
     d = s/60/60/24;
