@@ -9,4 +9,4 @@ for file in src/*.c; do
     gcc -Wall -Wextra -lX11 -lXrandr "$file" -o "build/${file2%%.c}"
 done
 
-printf "%s\\n" "Binaries are in ./build/"
+printf '%s\n' 'Binaries are in ./build/'
