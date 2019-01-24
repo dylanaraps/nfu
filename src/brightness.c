@@ -4,7 +4,7 @@
 
 int main() {
     struct dirent *de;
-    char path[256] = "/sys/class/backlight/";
+    char path[] = "/sys/class/backlight/";
     DIR *dr = opendir(path);
     int i = 0;
 
@@ -15,9 +15,9 @@ int main() {
         int perc;
 
         // Construct the file path.
-        strcat(full_path, path);
-        strcat(full_path, de->d_name);
-        strcat(full_path, "/brightness");
+        strncat(full_path, path, strlen(path));
+        strncat(full_path, de->d_name, strlen(de->d_name));
+        strncat(full_path, "/brightness", 12);
 
         FILE *f = fopen(full_path, "r");
         if (!f) continue;
